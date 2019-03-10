@@ -7,10 +7,16 @@ ModelImporter:
     400000: //RootNode
     2100000: WallpaperEdgeMaterial
     2100002: WallpaperMaterial
+    2100004: CardboardMaterial
     2300000: //RootNode
     3300000: //RootNode
     4300000: wall
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CardboardMaterial
+    second: {fileID: 2100000, guid: 7c6fac56dbbffcc4590a43bc012ed421, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

@@ -17,6 +17,7 @@ ModelImporter:
     2100006: CardboardEdgeMaterial
     2100008: DoorFrameMaterial
     2100010: WallMaterial
+    2100012: CardboardMaterial
     2300000: door
     2300002: doorway
     2300004: handle
@@ -32,6 +33,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: CardboardEdgeMaterial
     second: {fileID: 2100000, guid: 502d0b6eabcae5c41adb63081e4f3636, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CardboardMaterial
+    second: {fileID: 2100000, guid: 7c6fac56dbbffcc4590a43bc012ed421, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
