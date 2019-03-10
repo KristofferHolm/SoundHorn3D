@@ -25,7 +25,8 @@ public class Interaction : MonoBehaviour
 
     private void HearOwnSound()
     {
-        AudioSource.PlayOneShot(SoundManager.Instance.UI_PlayStop);
+        print("SPIL MIG");
+        SoundManager.Instance.PlaySoundOneShot(SoundManager.Instance.UI_PlayStop);
         if (AudioSource.isPlaying)
         {
             AudioSource.Stop();

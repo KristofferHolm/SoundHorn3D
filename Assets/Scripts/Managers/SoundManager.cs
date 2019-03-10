@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -15,6 +16,14 @@ public class SoundManager : MonoBehaviour
             }
             return instance;
         }
+    }
+
+    public void PlaySoundOneShot(AudioClip audio)
+    {
+        var source = PlayerManager.Instance.Cam.gameObject.AddComponent<AudioSource>();
+        source.clip = audio;
+        source.Play();
+        Destroy(source,audio.length);
     }
 
     public AudioClip UI_Error;
