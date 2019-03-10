@@ -11,9 +11,13 @@ public class MoveableObject : Interactable
     public override void Interact()
     {
         if (!interactable) return;
-        if (SoundObjectManager.Instance.CheckCategory(Sound).Equals(SoundObjectCategory.friction))
+        if (SoundObjectManager.Instance.CheckCategoryForSound(Sound, SoundObjectCategory.friction))
+        {
             MoveAction();
-        PlaySound(false);
+            PlaySound(false);
+        }
+        else
+            base.Interact();
     }
 
     private void MoveAction()

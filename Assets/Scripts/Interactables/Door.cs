@@ -10,9 +10,9 @@ public class Door : Interactable
     public override void Interact()
     {
         if (!interactable) return;
-        if (SoundObjectManager.Instance.CheckCategory(Sound).Equals(SoundObjectCategory.open))
+        if (SoundObjectManager.Instance.GetCategory(Sound).Equals(SoundObjectCategory.open))
             OpenAction();
-        else if (SoundObjectManager.Instance.CheckCategory(Sound).Equals(SoundObjectCategory.close))
+        else if (SoundObjectManager.Instance.GetCategory(Sound).Equals(SoundObjectCategory.close))
             CloseAction();
         base.Interact();
     }
