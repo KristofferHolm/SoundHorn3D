@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class Gear : Interactable
@@ -66,5 +67,17 @@ public class Gear : Interactable
         if (Sound == gearPuzzle.Slow) speed = 10;
         if (Sound == gearPuzzle.Normal) speed = 20;
         if (Sound == gearPuzzle.Fast) speed = 30;
+    }
+    public void ResetSound(float waitFor)
+    {
+        AudioSource.Stop();
+        isPlaying = false;
+        StartCoroutine(PlayDelayed(waitFor));
+    }
+    IEnumerator PlayDelayed(float waitFor)
+    {
+        yield return new WaitForSeconds(waitFor);
+        isPlaying = true;
+        AudioSource.Play();
     }
 }

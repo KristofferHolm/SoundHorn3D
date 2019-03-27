@@ -29,6 +29,9 @@ public class GearPuzzle : MonoBehaviour
 
     private void CompletePuzzle()
     {
+        SmallGear.ResetSound(2.75f);
+        MedGear.ResetSound(2.75f);
+        BigGear.ResetSound(2.75f);
         SmallGear.interactable = false;
         MedGear.interactable = false;
         BigGear.interactable = false;
@@ -37,8 +40,8 @@ public class GearPuzzle : MonoBehaviour
         MedGear.transform.DOLocalMoveZ(0, 2.75f).SetEase(Ease.InOutExpo).OnComplete(()=>
         {
             Door.transform.DOLocalRotate(Vector3.up * 90, 3);
+            Door.transform.DOMove(transform.position - transform.right*0.75f, 3);
         });
-
         
     }
 }
