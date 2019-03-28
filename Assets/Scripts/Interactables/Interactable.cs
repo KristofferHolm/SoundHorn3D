@@ -51,6 +51,11 @@ public abstract class Interactable : MonoBehaviour
     {
         if (!interactable) return;
         PlayStopSound(false);
+        if (Sound == null && PlayerManager.Instance.CurrentPlayerAudioClip == null)
+        {
+            PlaySound(true);
+            return;
+        }
         AudioClip temp = PlayerManager.Instance.CurrentPlayerAudioClip;
         PlayerManager.Instance.CurrentPlayerAudioClip = Sound;
         Sound = temp;
@@ -78,6 +83,7 @@ public abstract class Interactable : MonoBehaviour
 
     protected void PlaySound(bool vibrate = true)
     {
+        if (AudioSource.isPlaying) return;
         if (Sound == null)
         {
             if (vibrate) transform.DOShakePosition(0.25f, 0.025f, 50, 90, false, false);
@@ -94,7 +100,7 @@ public abstract class Interactable : MonoBehaviour
         }
         AudioSource.PlayOneShot(Sound);
         if(vibrate) transform.DOShakePosition(Sound.length, 0.025f, 25, 90, false, false);
-        SetUninteractableForSeconds(Sound.length);
+        SetUninteractableForSeconds(0.25f);
     }
     protected virtual void SetAudioSettings(bool continous)
     {
