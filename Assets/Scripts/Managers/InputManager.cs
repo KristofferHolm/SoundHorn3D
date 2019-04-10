@@ -31,10 +31,10 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
-        Input_Duck += () => Debug.Log("Duck");
-        Input_HearOwnSound += () => Debug.Log("HearOwnSound");
-        Input_Interact += () => Debug.Log("Interact");
-        Input_SwapSound += () => Debug.Log("SwapSound");
+        //Input_Duck += () => Debug.Log("Duck");
+        //Input_HearOwnSound += () => Debug.Log("HearOwnSound");
+        //Input_Interact += () => Debug.Log("Interact");
+        //Input_SwapSound += () => Debug.Log("SwapSound");
     }
     public Vector3 TankMovement()
     {

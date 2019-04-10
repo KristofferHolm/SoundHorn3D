@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class PitchColorPuzzle : MonoBehaviour
 {
     public Color[] Colors = {
@@ -13,21 +13,25 @@ public class PitchColorPuzzle : MonoBehaviour
     public PitchColor Small, Medium, Big;
     public AudioClip A_Small, A_Medium, A_Big;
 
-    public Color GetColorOfPitch(PitchColor pitch, AudioClip a)
+    public float GetColorOfPitch(PitchColor pitch, AudioClip a)
     {
-        if(pitch == Big)
-        {
-            if (a == A_Small)
-                return Colors[0];
-            else if (a == A_Medium)
-                return Colors[1];
-        }
-        if(pitch == Medium)
-        {
-            if (a == A_Small)
-                return Colors[1];
-        }
-        return Colors[2];
+        var str = 0f; 
+
+        if (a == A_Small)
+            str = 1;
+        else if (a == A_Medium)
+            str = 2;
+        else if (a == A_Big)
+            str = 4;
+
+        if (pitch == Small)
+            str /= 1;
+        else if (pitch == Medium)
+            str /= 2;
+        else if (pitch == Big)
+            str /= 4;
+
+        return str;
     }
 
     public bool CheckIfPuzzleIsDone()
@@ -50,6 +54,7 @@ public class PitchColorPuzzle : MonoBehaviour
 
     private void CompletePuzzle()
     {
-        print("GG");
+        var vector = transform.position + Vector3.up;
+        transform.DOJump(vector, .5f, 1, A_Small.length);
     }
 }
