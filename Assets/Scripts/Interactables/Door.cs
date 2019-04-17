@@ -20,7 +20,7 @@ public class Door : Interactable
     private void OpenAction()
     {
         if (Open) return;
-        DoorObj.DORotate(Vector3.right, Sound.length).OnComplete(() =>
+        DoorObj.transform.DOLocalRotate(Vector3.up * -90, Sound.length).OnComplete(() =>
         {
             Open = true;
         });
@@ -28,7 +28,7 @@ public class Door : Interactable
     private void CloseAction()
     {
         if (!Open) return;
-        DoorObj.DORotate(Vector3.zero, Sound.length).OnComplete(() =>
+        DoorObj.transform.DOLocalRotate(Vector3.up * 90, Sound.length).OnComplete(() =>
         {
             Open = false;
         });

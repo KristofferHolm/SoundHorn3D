@@ -31,7 +31,8 @@ public class Gate : MonoBehaviour
 
         GateObj.transform.DOLocalRotate(Vector3.back * tickDegree*ticks, duration, RotateMode.Fast).SetEase(Ease.OutBounce).OnComplete(()=>
         {
-            InvisibleBlock.enabled = !completed;
+            if(InvisibleBlock)
+                InvisibleBlock.enabled = !completed;
         });
     }
 

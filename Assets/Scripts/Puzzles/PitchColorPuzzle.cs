@@ -54,7 +54,7 @@ public class PitchColorPuzzle : MonoBehaviour
 
     private void CompletePuzzle()
     {
-        var vector = transform.position + Vector3.up;
+        var vector = transform.position + Vector3.up * 1.25f;
         transform.DOJump(vector, .5f, 1, A_Small.length);
     }
 }

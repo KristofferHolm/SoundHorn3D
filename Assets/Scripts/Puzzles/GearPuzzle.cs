@@ -5,7 +5,7 @@ using UnityEngine;
 using DG.Tweening;
 public class GearPuzzle : MonoBehaviour
 {
-
+    public bool OpenOutwards = true;
     public Gear SmallGear, MedGear, BigGear;
     public AudioClip Slow, Normal, Fast;
     public GameObject Door;
@@ -39,8 +39,10 @@ public class GearPuzzle : MonoBehaviour
         BigGear.transform.DOLocalMoveZ(0, 2.75f).SetEase(Ease.InOutExpo);
         MedGear.transform.DOLocalMoveZ(0, 2.75f).SetEase(Ease.InOutExpo).OnComplete(()=>
         {
-            Door.transform.DOLocalRotate(Vector3.up * 90, 3);
-            Door.transform.DOMove(transform.position - transform.right*0.75f, 3);
+            var degrees = 0;
+            degrees = OpenOutwards ? -90 : 90;
+            Door.transform.DOLocalRotate(Vector3.up * degrees, 3);
+            //Door.transform.DOMove(transform.position - transform.right*0.75f, 3);
         });
         
     }
