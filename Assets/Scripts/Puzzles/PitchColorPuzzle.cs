@@ -5,11 +5,6 @@ using UnityEngine;
 using DG.Tweening;
 public class PitchColorPuzzle : MonoBehaviour
 {
-    public Color[] Colors = {
-        new Color(0.25f,0,0),
-        new Color(0.5f,0,0),
-        new Color(1,0,0)
-        };
     public PitchColor Small, Medium, Big;
     public AudioClip A_Small, A_Medium, A_Big;
 
