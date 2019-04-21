@@ -37,7 +37,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CardboardMaterial
-    second: {fileID: 2100000, guid: 7c6fac56dbbffcc4590a43bc012ed421, type: 2}
+    second: {fileID: 2100000, guid: d4474e580ea4f15429770d8aece84ad8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
