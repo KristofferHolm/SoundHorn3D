@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 399341992643177785}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -311,6 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4981348c3ce764099fa6e74472ce80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionRange: 1
 --- !u!1001 &7711997305065885418
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,9 +10,9 @@ public class Door : Interactable
     public override void Interact()
     {
         if (!interactable) return;
-        if (SoundObjectManager.Instance.CheckCategory(Sound).Equals(SoundObjectCategory.open))
+        if (SoundObjectManager.Instance.GetCategory(Sound).Equals(SoundObjectCategory.open))
             OpenAction();
-        else if (SoundObjectManager.Instance.CheckCategory(Sound).Equals(SoundObjectCategory.close))
+        else if (SoundObjectManager.Instance.GetCategory(Sound).Equals(SoundObjectCategory.close))
             CloseAction();
         base.Interact();
     }
@@ -20,22 +20,16 @@ public class Door : Interactable
     private void OpenAction()
     {
         if (Open) return;
-        var col = DoorObj.GetComponent<Collider>();
-        col.enabled = false;
-        DoorObj.DORotate(Vector3.right, Sound.length).OnComplete(() =>
+        DoorObj.transform.DOLocalRotate(Vector3.up * -90, Sound.length).OnComplete(() =>
         {
-            col.enabled = true;
             Open = true;
         });
     }
     private void CloseAction()
     {
         if (!Open) return;
-        var col = DoorObj.GetComponent<Collider>();
-        col.enabled = false;
-        DoorObj.DORotate(Vector3.zero, Sound.length).OnComplete(() =>
+        DoorObj.transform.DOLocalRotate(Vector3.up * 90, Sound.length).OnComplete(() =>
         {
-            col.enabled = true;
             Open = false;
         });
     }

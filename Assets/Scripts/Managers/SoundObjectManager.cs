@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SoundObjectManager : MonoBehaviour
 {
+    public List<SoundCategory> Categories;
     private static SoundObjectManager instance;
     public static SoundObjectManager Instance
     {
@@ -18,7 +19,20 @@ public class SoundObjectManager : MonoBehaviour
         }
     }
 
-    public SoundObjectCategory CheckCategory(AudioClip clip)
+    public bool CheckCategoryForSound(AudioClip clip, SoundObjectCategory category)
+    {
+        return GetSoundsFromCategory(category).Contains(clip);
+    }
+    public List<AudioClip> GetSoundsFromCategory(SoundObjectCategory category)
+    {
+        foreach (var cat in Categories)
+        {
+            if (cat.Category == category)
+                return cat.Sounds;
+        }
+        return null;
+    }
+    public SoundObjectCategory GetCategory(AudioClip clip)
     {
         foreach (var category in Categories)
         {
@@ -32,10 +46,9 @@ public class SoundObjectManager : MonoBehaviour
     }
 
 
-
-
-    public List<SoundCategory> Categories;
+    
 }
+
 [Serializable]
 public class SoundCategory
 {
