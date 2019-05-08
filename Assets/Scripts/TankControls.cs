@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TankControls : MonoBehaviour
 {
@@ -41,6 +38,6 @@ public class TankControls : MonoBehaviour
         currentSpeed = (ducking ? DuckingSpeed : MovementSpeed) * Time.deltaTime;
         currentRotSpeed = RotationSpeed * Time.deltaTime;
         transform.rotation *= Quaternion.AngleAxis(InputManager.Instance.CameraMovementX * currentRotSpeed, transform.up);
-        Rigidbody.velocity = transform.rotation * InputManager.Instance.TankMovement()  * currentSpeed;
+        //Rigidbody.velocity = transform.rotation * InputManager.Instance.TankMovement()  * currentSpeed;
     }
 }

@@ -36,18 +36,10 @@ public class InputManager : MonoBehaviour
         //Input_Interact += () => Debug.Log("Interact");
         //Input_SwapSound += () => Debug.Log("SwapSound");
     }
-    public Vector3 TankMovement()
-    {
-        var x = Input.GetAxis("Horizontal");
-        var y = Input.GetAxis("Vertical");
-        var vec = new Vector2(x, y).normalized;
-        return new Vector3(vec.x, 0, vec.y);
-    }
     public float CameraMovementX
     {
         get
         {
-
             return Input.GetAxis("MouseX");
         }
     }

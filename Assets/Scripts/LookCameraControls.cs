@@ -12,8 +12,7 @@ public class LookCameraControls : MonoBehaviour
     bool ducking = false;
     private void Start()
     {
-
-        InputManager.Instance.Input_Duck += Duck;
+        //InputManager.Instance.Input_Duck += Duck;
     }
     void Duck()
     {
